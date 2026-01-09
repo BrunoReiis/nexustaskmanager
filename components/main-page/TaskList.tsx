@@ -20,10 +20,10 @@ function TaskItem({ task, onToggle, onClick }: TaskItemProps) {
   };
 
   const priorityLabels: Record<Priority, string> = {
-    baixa: "Baixa",
-    media: "Média",
-    alta: "Alta",
-    urgente: "Urgente"
+    baixa: "Low",
+    media: "Medium",
+    alta: "High",
+    urgente: "Urgent"
   };
 
   const isOverdue = task.dueDate && new Date(task.dueDate) < new Date() && task.status !== 'concluida';
@@ -73,7 +73,7 @@ function TaskItem({ task, onToggle, onClick }: TaskItemProps) {
                   color={isOverdue ? "danger" : "default"}
                   variant="flat"
                 >
-                  {new Date(task.dueDate).toLocaleDateString('pt-BR', {
+                  {new Date(task.dueDate).toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'short'
                   })}
@@ -159,15 +159,15 @@ export default function TaskList({ tasks, onToggleTask, onClickTask }: TaskListP
 
   return (
     <div className="w-full">
-      {renderSection('⚠️ Atrasadas', categorizedTasks.overdue)}
-      {renderSection('📅 Hoje', categorizedTasks.today)}
-      {renderSection('📆 Próximos Dias', categorizedTasks.upcoming)}
-      {renderSection('📋 Sem Data', categorizedTasks.noDate)}
+      {renderSection('⚠️ Overdue', categorizedTasks.overdue)}
+      {renderSection('📅 Today', categorizedTasks.today)}
+      {renderSection('📆 Upcoming', categorizedTasks.upcoming)}
+      {renderSection('📋 No Date', categorizedTasks.noDate)}
       
       {tasks.length === 0 && (
         <div className="flex flex-col items-center justify-center py-12 text-center">
-          <p className="text-lg text-default-500">Nenhuma tarefa encontrada</p>
-          <p className="text-sm text-default-400">Crie uma nova tarefa para começar</p>
+          <p className="text-lg text-default-500">No tasks found</p>
+          <p className="text-sm text-default-400">Create a new task to get started</p>
         </div>
       )}
     </div>

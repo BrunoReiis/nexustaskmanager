@@ -42,7 +42,7 @@ export default function MainSidebar({
           {/* Main Menu */}
           <div className="mb-6">
             {!isCollapsed && (
-              <p className="mb-2 text-xs font-semibold text-default-500">PRINCIPAL</p>
+              <p className="mb-2 text-xs font-semibold text-default-500">MAIN</p>
             )}
             <div className="flex flex-col gap-1">
               {menuItems.map(item => (
@@ -74,12 +74,12 @@ export default function MainSidebar({
           <div className="flex-1">
             {!isCollapsed && (
               <div className="mb-2 flex items-center justify-between">
-                <p className="text-xs font-semibold text-default-500">PROJETOS</p>
+                <p className="text-xs font-semibold text-default-500">PROJECTS</p>
                 <Button
                   isIconOnly
                   size="sm"
                   variant="light"
-                  onPress={() => {/* TODO: Abrir modal de criar projeto */}}
+                  onPress={() => {/* TODO: Open create project modal */}}
                 >
                   +
                 </Button>
@@ -88,7 +88,7 @@ export default function MainSidebar({
             <div className="flex flex-col gap-1">
               {projects.length === 0 && !isCollapsed ? (
                 <p className="py-4 text-center text-sm text-default-400">
-                  Nenhum projeto
+                  No projects
                 </p>
               ) : (
                 projects.map(project => (
@@ -125,9 +125,9 @@ export default function MainSidebar({
               <Button
                 variant="light"
                 className="w-full justify-start"
-                onPress={() => {/* TODO: Ir para relatórios */}}
+                onPress={() => {/* TODO: Go to reports */}}
               >
-                📊 Relatórios
+                📊 Reports
               </Button>
             </div>
           )}

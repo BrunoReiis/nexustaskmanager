@@ -21,7 +21,7 @@ export default function MainHeader({ onCreateTask }: MainHeaderProps) {
     router.push('/login');
   };
 
-  const today = new Date().toLocaleDateString('pt-BR', {
+  const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -29,16 +29,16 @@ export default function MainHeader({ onCreateTask }: MainHeaderProps) {
   });
 
   return (
-    <header className="z-40 w-full border-b border-divider bg-background">
+    <header className="z-10 w-full border-b border-divider bg-background">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Data */}
+        {/* Date */}
         <div className="flex items-center gap-6">
           <span className="hidden text-sm text-default-500 md:block capitalize">
             {today}
           </span>
         </div>
 
-        {/* Busca e Ações */}
+        {/* Search & Actions */}
         <div className="flex items-center gap-3">
           <Input
             classNames={{
@@ -47,7 +47,7 @@ export default function MainHeader({ onCreateTask }: MainHeaderProps) {
               input: "text-small",
               inputWrapper: "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
             }}
-            placeholder="Buscar tarefas..."
+            placeholder="Search tasks..."
             size="sm"
             startContent={<SearchIcon size={18} />}
             type="search"
@@ -59,7 +59,7 @@ export default function MainHeader({ onCreateTask }: MainHeaderProps) {
             className="px-6"
             onPress={onCreateTask}
           >
-            + Nova Tarefa
+            + New Task
           </Button>
         </div>
       </div>

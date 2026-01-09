@@ -22,23 +22,23 @@ export default function QuickFilters({
 
   const priorities: Priority[] = ['baixa', 'media', 'alta', 'urgente'];
   const priorityLabels: Record<Priority, string> = {
-    baixa: 'Baixa',
-    media: 'Média',
-    alta: 'Alta',
-    urgente: 'Urgente'
+    baixa: 'Low',
+    media: 'Medium',
+    alta: 'High',
+    urgente: 'Urgent'
   };
 
   const dueDateOptions = [
-    { key: 'hoje', label: 'Hoje' },
-    { key: 'proximos', label: 'Próximos 7 dias' },
-    { key: 'atrasadas', label: 'Atrasadas' },
-    { key: 'sem_data', label: 'Sem data' }
+    { key: 'hoje', label: 'Today' },
+    { key: 'proximos', label: 'Next 7 days' },
+    { key: 'atrasadas', label: 'Overdue' },
+    { key: 'sem_data', label: 'No date' }
   ];
 
   return (
     <div className="w-full rounded-lg border border-divider bg-content1 p-4">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-sm font-semibold">Filtros Rápidos</h3>
+        <h3 className="text-sm font-semibold">Quick Filters</h3>
         {hasActiveFilters && (
           <Button
             size="sm"
@@ -46,16 +46,16 @@ export default function QuickFilters({
             color="danger"
             onPress={onClearFilters}
           >
-            Limpar Filtros
+            Clear Filters
           </Button>
         )}
       </div>
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
-        {/* Filtro de Projeto */}
+        {/* Project Filter */}
         <Select
-          label="Projeto"
-          placeholder="Todos os projetos"
+          label="Project"
+          placeholder="All projects"
           size="sm"
           selectedKeys={filter.projectId ? [filter.projectId] : []}
           onChange={(e) => onFilterChange({ ...filter, projectId: e.target.value || undefined })}
@@ -67,10 +67,10 @@ export default function QuickFilters({
           ))}
         </Select>
 
-        {/* Filtro de Prioridade */}
+        {/* Priority Filter */}
         <Select
-          label="Prioridade"
-          placeholder="Todas as prioridades"
+          label="Priority"
+          placeholder="All priorities"
           size="sm"
           selectedKeys={filter.priority ? [filter.priority] : []}
           onChange={(e) => onFilterChange({ ...filter, priority: e.target.value as Priority || undefined })}
@@ -82,10 +82,10 @@ export default function QuickFilters({
           ))}
         </Select>
 
-        {/* Filtro de Prazo */}
+        {/* Due Date Filter */}
         <Select
-          label="Prazo"
-          placeholder="Todos os prazos"
+          label="Due Date"
+          placeholder="All dates"
           size="sm"
           selectedKeys={filter.dueDate ? [filter.dueDate] : []}
           onChange={(e) => onFilterChange({ 
@@ -100,10 +100,10 @@ export default function QuickFilters({
           ))}
         </Select>
 
-        {/* Filtro de Status */}
+        {/* Status Filter */}
         <Select
           label="Status"
-          placeholder="Todos os status"
+          placeholder="All statuses"
           size="sm"
           selectedKeys={filter.status ? [filter.status] : []}
           onChange={(e) => onFilterChange({ 
@@ -112,13 +112,13 @@ export default function QuickFilters({
           })}
         >
           <SelectItem key="pendente">
-            Pendente
+            Pending
           </SelectItem>
           <SelectItem key="em_progresso">
-            Em Progresso
+            In Progress
           </SelectItem>
           <SelectItem key="concluida">
-            Concluída
+            Completed
           </SelectItem>
         </Select>
       </div>
@@ -134,7 +134,7 @@ export default function QuickFilters({
               size="lg"
               className="px-10"
             >
-              Projeto: {projects.find(p => p.id === filter.projectId)?.name}
+              Project: {projects.find(p => p.id === filter.projectId)?.name}
             </Chip>
           )}
           {filter.priority && (

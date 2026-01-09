@@ -81,31 +81,31 @@ export default function QuickStats({
 }: QuickStatsProps) {
   return (
     <div className="w-full">
-      <h2 className="mb-4 text-lg font-semibold">Resumo Rápido</h2>
+      <h2 className="mb-4 text-lg font-semibold">Quick Overview</h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
-          title="Concluídas Hoje"
+          title="Completed Today"
           count={completedToday}
           color="success"
           icon={<CheckIcon />}
           onClick={() => onStatClick?.('completed')}
         />
         <StatCard
-          title="Atrasadas"
+          title="Overdue"
           count={overdue}
           color="danger"
           icon={<AlertIcon />}
           onClick={() => onStatClick?.('overdue')}
         />
         <StatCard
-          title="Para Hoje"
+          title="For Today"
           count={forToday}
           color="primary"
           icon={<CalendarIcon />}
           onClick={() => onStatClick?.('today')}
         />
         <StatCard
-          title="Alta Prioridade"
+          title="High Priority"
           count={highPriority}
           color="warning"
           icon={<FireIcon />}

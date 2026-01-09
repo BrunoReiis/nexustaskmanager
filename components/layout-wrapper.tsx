@@ -28,8 +28,8 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
           href="https://heroui.com?utm_source=next-app-template"
           title="heroui.com homepage"
         >
-          <span className="text-default-600">Powered by</span>
-          <p className="text-primary">HeroUI</p>
+          <span className="text-default-600">Created by</span>
+          <p className="text-secondary">BrunoReiis</p>
         </Link>
       </footer>
     </div>
